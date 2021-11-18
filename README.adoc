@@ -17,6 +17,14 @@ To run your application / How to reproduce problem:
 java.lang.IllegalArgumentException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
 	at org.infinispan.protostream.impl.SerializationContextImpl.getMarshallerDelegate(SerializationContextImpl.java:512) ~[protostream-4.4.1.Final.jar:4.4.1.Final]
 
+...
+
+2021-11-18T14:52:26,270 <vert.x-eventloop-thread-0> [ERROR ] [io.vertx.core.impl.VertxImpl] Failed to initialize clustered Vert.x
+org.infinispan.commons.marshall.MarshallingException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
+	at org.infinispan.marshall.protostream.impl.AbstractInternalProtoStreamMarshaller.objectToByteBuffer(AbstractInternalProtoStreamMarshaller.java:81) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
+	at org.infinispan.marshall.protostream.impl.AbstractInternalProtoStreamMarshaller.objectToByteBuffer(AbstractInternalProtoStreamMarshaller.java:87) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
+	at org.infinispan.marshall.core.GlobalMarshaller.writeRawUnknown(GlobalMarshaller.java:637) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
+
 ```
 
 
