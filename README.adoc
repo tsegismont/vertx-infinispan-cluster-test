@@ -5,7 +5,7 @@
 To run your application / How to reproduce problem:
 
 1. Use intellij Idea
-2. Use run shared configs:
+2. Use shared configs and run:
 
 * start ServerVerticle-Cluster-Member-1
 * start ServerVerticle-Cluster-Member-2
