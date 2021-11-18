@@ -1,0 +1,27 @@
+= Vertx Infinispan cluster with clustered session store test
+
+
+
+To run your application / How to reproduce problem:
+
+1. Use intellij Idea
+2. Use run shared configs:
+
+* start ServerVerticle-Cluster-Member-1
+* start ServerVerticle-Cluster-Member-2
+* start ServerVerticle-Zero-Capacity-Node
+-> see log like:
+```
+2021-11-18T14:52:26,270 <vert.x-eventloop-thread-0> [ERROR ] [io.vertx.core.impl.VertxImpl] Failed to initialize clustered Vert.x
+org.infinispan.commons.marshall.MarshallingException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
+```
+
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
