@@ -12,8 +12,11 @@ To run your application / How to reproduce problem:
 * start ServerVerticle-Zero-Capacity-Node
 -> see log like:
 ```
-2021-11-18T14:52:26,270 <vert.x-eventloop-thread-0> [ERROR ] [io.vertx.core.impl.VertxImpl] Failed to initialize clustered Vert.x
-org.infinispan.commons.marshall.MarshallingException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
+
+2021-11-18T14:52:26,267 <vert.x-worker-thread-0> [WARN  ] [org.infinispan.PERSISTENCE] ISPN000559: Cannot marshall 'class org.infinispan.marshall.protostream.impl.MarshallableUserObject'
+java.lang.IllegalArgumentException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
+	at org.infinispan.protostream.impl.SerializationContextImpl.getMarshallerDelegate(SerializationContextImpl.java:512) ~[protostream-4.4.1.Final.jar:4.4.1.Final]
+
 ```
 
 
