@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+  <Properties>
+    <Property name="LOG_PATTERN">%d{ISO8601} &lt;%t&gt; [%-6p] [%c] %m%n</Property>
+  </Properties>
+
+  <Appenders>
+    <!-- Append to stdout and let the start script (using cronolog) redirect -->
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <!-- The default pattern: Date <thread> [Priority] [class] Message\n -->
+      <PatternLayout pattern="${LOG_PATTERN}"/>
+    </Console>
+
+    <!-- Make all of our stout messages asynchronous - This is to avoid issue with blocking write to stdout. -->
+    <Async name="AsynchronousConsoleAppender" bufferSize="20000" blocking="false">
+      <appenderRef ref="ConsoleAppender"/>
+    </Async>
+
+
+  </Appenders>
+  <Loggers>
+    <logger name="io.vertx" level="DEBUG"/>
+    <logger name="io.netty" level="INFO"/>
+
+    <logger name="org.infinispan" level="DEBUG"/>
+    <logger name="org.jgroups" level="DEBUG"/>
+
+    <root level="INFO">
+      <appender-ref ref="AsynchronousConsoleAppender"/>
+    </root>
+  </Loggers>
+</Configuration>

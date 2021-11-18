@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ServerVerticle-Cluster-Member-2" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="org.vertx.test.infinispan.ServerVerticle" />
+    <module name="infinispan-cluster-test" />
+    <option name="VM_PARAMETERS" value="-Dvertx.jgroups.config=jgroups-local.xml -Dvertx.infinispan.config=infinispan-normal.xml" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="org.vertx.test.infinispan.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
