@@ -1,4 +1,4 @@
-= Vertx Infinispan cluster [.line-through]#with clustered session store#  test - failing with Zero-Capacity-Node
+= Vertx Infinispan cluster test - failing with Zero-Capacity-Node
 
 
 
@@ -27,6 +27,9 @@ org.infinispan.commons.marshall.MarshallingException: No marshaller registered f
 
 ```
 
+
+== Note
+It used to be a test of Infinispan baed vert.x cluster with clustered session store, but clustered session store is not needed to gat the exception.
 
 == Help
 
