@@ -1,4 +1,4 @@
-= Vertx Infinispan cluster with clustered session store test
+= Vertx Infinispan cluster [.line-through]#with clustered session store#  test - failing with Zero-Capacity-Node
 
 
 

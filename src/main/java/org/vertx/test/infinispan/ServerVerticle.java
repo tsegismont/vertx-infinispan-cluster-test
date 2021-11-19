@@ -41,9 +41,9 @@ public class ServerVerticle extends AbstractVerticle {
   public void start() {
     Router router = Router.router(vertx);
 
-    SessionStore store = ClusteredSessionStore.create(vertx);
-
-    router.route().handler(SessionHandler.create(store));
+//    SessionStore store = ClusteredSessionStore.create(vertx);
+//
+//    router.route().handler(SessionHandler.create(store));
 
     router.get("/").handler(ctx -> {
       Session session = ctx.session();
