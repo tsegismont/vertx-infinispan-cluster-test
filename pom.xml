@@ -20,7 +20,7 @@
     <vertx.version>4.2.1</vertx.version>
     <junit-jupiter.version>5.7.0</junit-jupiter.version>
 
-    <main.verticle>org.vertx.test.infinispan.MainVerticle</main.verticle>
+    <main.verticle>org.vertx.test.infinispan.ServerVerticle</main.verticle>
     <launcher.class>io.vertx.core.Launcher</launcher.class>
   </properties>
 
@@ -37,16 +37,11 @@
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-web-sstore-infinispan</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-infinispan</artifactId>
     </dependency>
-
 
     <dependency>
       <groupId>io.vertx</groupId>
@@ -124,15 +119,20 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>${exec-maven-plugin.version}</version>
         <configuration>
-          <mainClass>io.vertx.core.Launcher</mainClass>
-          <arguments>
-            <argument>run</argument>
-            <argument>${main.verticle}</argument>
-          </arguments>
+          <mainClass>org.vertx.test.infinispan.ServerVerticle</mainClass>
+          <systemProperties>
+            <systemProperty>
+              <key>java.net.preferIPv4Stack</key>
+              <value>true</value>
+            </systemProperty>
+            <systemProperty>
+              <key>jgroups.bind.address</key>
+              <value>LOOPBACK</value>
+            </systemProperty>
+          </systemProperties>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
 
 </project>
