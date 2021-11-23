@@ -1,41 +1,22 @@
 = Vertx Infinispan cluster test - failing with Zero-Capacity-Node
 
+First:
 
+[source,bash]
+----
+mvn clean compile
+----
 
-To run your application / How to reproduce problem:
+Then, to start a regular node:
 
-1. Use intellij Idea
-2. Use shared run configurations and:
+[source,bash]
+----
+mvn exec:java
+----
 
-* start ServerVerticle-Cluster-Member-1
-* start ServerVerticle-Cluster-Member-2
-* start ServerVerticle-Zero-Capacity-Node
--> see log like:
-```
+To start a zero-capacity node:
 
-2021-11-18T14:52:26,267 <vert.x-worker-thread-0> [WARN  ] [org.infinispan.PERSISTENCE] ISPN000559: Cannot marshall 'class org.infinispan.marshall.protostream.impl.MarshallableUserObject'
-java.lang.IllegalArgumentException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
-	at org.infinispan.protostream.impl.SerializationContextImpl.getMarshallerDelegate(SerializationContextImpl.java:512) ~[protostream-4.4.1.Final.jar:4.4.1.Final]
-
-...
-
-2021-11-18T14:52:26,270 <vert.x-eventloop-thread-0> [ERROR ] [io.vertx.core.impl.VertxImpl] Failed to initialize clustered Vert.x
-org.infinispan.commons.marshall.MarshallingException: No marshaller registered for object of Java type io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter : io.vertx.ext.cluster.infinispan.impl.SubsCacheHelper$EventFilter@7c28245a
-	at org.infinispan.marshall.protostream.impl.AbstractInternalProtoStreamMarshaller.objectToByteBuffer(AbstractInternalProtoStreamMarshaller.java:81) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
-	at org.infinispan.marshall.protostream.impl.AbstractInternalProtoStreamMarshaller.objectToByteBuffer(AbstractInternalProtoStreamMarshaller.java:87) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
-	at org.infinispan.marshall.core.GlobalMarshaller.writeRawUnknown(GlobalMarshaller.java:637) ~[infinispan-core-12.1.7.Final.jar:12.1.7.Final]
-
-```
-
-
-== Note
-It used to be a test of Infinispan baed vert.x cluster with clustered session store, but clustered session store is not needed to gat the exception.
-
-== Help
-
-* https://vertx.io/docs/[Vert.x Documentation]
-* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
-* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
-* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
-
-
+[source,bash]
+----
+mvn exec:java -Dvertx.infinispan.config=infinispan-zero.xml
+----
